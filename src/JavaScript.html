@@ -1,0 +1,106 @@
+<!-- Load the jQuery and jQuery UI libraries. -->
+<script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+
+<script src="https://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+
+<!-- Custom client-side JavaScript code. -->
+<script>
+  // When the page loads.
+  $(function() {
+    setDefaultPeriod();
+    $('#date-start').bind('change', loadTips);
+    $('#date-end').bind('change', loadTips);
+    loadTips();
+  });
+  
+  /**
+   * Set default period for tips view.
+   */
+  function setDefaultPeriod() {
+    var start = new Date();
+    start.setDate(0);
+    start.setMonth(start.getMonth() - 1);
+    var end = new Date();
+    end.setDate(1);
+    $('#date-start').val(start.toJSON().slice(0,10));
+    $('#date-end').val(end.toJSON().slice(0,10));
+  }
+  
+  /**
+   * Load the tip list.
+   */
+  function loadTips() {
+    timer = setInterval(getProgressData, 1000);
+    $('#tip-table').empty();
+    $('#tip-total').empty();
+    $('#progress-bar').show();
+    var after = $('#date-start').val();
+    var before = $('#date-end').val();
+    google.script.run
+        .withSuccessHandler(showTips)
+        .withFailureHandler(showError)
+        .getTips(after, before);
+  }
+  
+  function getProgressData() {
+    google.script.run
+        .withSuccessHandler(updateProgress)
+        .withFailureHandler(showError)
+        .getProgressData();
+  }
+  
+  function updateProgress(progressData) {
+    $('#progress-info').text(progressData.progress + '% done!');
+  }
+  
+  /**
+   * Show the returned tip list.
+   * @param {Array.<Object>} tips The tip to show.
+   */
+  function showTips(tips) {
+    clearInterval(timer);
+    var list = $('#tip-table').empty();
+    var yourShareTotal = 0;
+    if (tips.length > 0) {
+      tips.forEach(function(tip, index) {
+        yourShareTotal += Number(tip.yourShare.replace(/[^0-9\.]+/g,""));
+        var item = $('<tr>');
+        
+        var total = $('<td>')
+            .text(tip.date);
+        item.append(total);
+        
+        var customer = $('<td class="mdl-data-table__cell--non-numeric">')
+            .text(tip.customer);
+        item.append(customer);
+        
+        var total = $('<td>')
+            .text(tip.total);
+        item.append(total);
+        
+        var yourShare = $('<td>')
+          .text(tip.yourShare);
+        item.append(yourShare);
+        
+        componentHandler.upgradeDom('#tip-table');
+        list.append(item);
+      });
+      $('#tip-total').text('Your share of the tip for the period is ' + yourShareTotal.toFixed(2));
+    } else {
+      $('#tip-total').text('No tips!');
+      list.text('No tips!');
+    }
+    $('#progress-bar').hide();
+    $('#progress-info').text('');
+  }
+  
+  /**
+   * Logs an error message and shows an alert to the user.
+   */
+  function showError(error) {
+    console.log(error);
+    window.alert('An error has occurred, please try again.');
+  }
+
+
+</script>

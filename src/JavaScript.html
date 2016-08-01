@@ -8,6 +8,7 @@
   // When the page loads.
   $(function() {
     setDefaultPeriod();
+    $('#button-go').bind('click', loadTips);
     $('#date-start').bind('change', loadTips);
     $('#date-end').bind('change', loadTips);
     loadTips();

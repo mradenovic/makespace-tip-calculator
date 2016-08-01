@@ -88,6 +88,11 @@ function getTip(message) {
   return tip;
 }
 
+/**
+ * Returns html string to include in html document.
+ * @param {String} filename Name of the file that contains html string.
+ * @return {String} String to include in html document.
+ */
 function include(filename) {
   return HtmlService.createHtmlOutputFromFile(filename)
       .getContent();

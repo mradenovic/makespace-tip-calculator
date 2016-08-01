@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <?!= HtmlService.createHtmlOutputFromFile('Stylesheet').getContent(); ?>
+  <?!= include('Stylesheet'); ?>
 </head>
 <body>
 
@@ -15,9 +15,9 @@
     </div>
   </header>
   <main class="mdl-layout__content">
-    <?!= HtmlService.createHtmlOutputFromFile('Content').getContent(); ?>
+    <?!= include('Content'); ?>
     
-    <?!= HtmlService.createHtmlOutputFromFile('Table').getContent(); ?>
+    <?!= include('Table'); ?>
     <div class="mdl-grid">
     </div>
     <footer class="mdl-mini-footer">
@@ -32,7 +32,7 @@
   </main>
 </div>
 
-<?!= HtmlService.createHtmlOutputFromFile('JavaScript').getContent(); ?>
+<?!= include('JavaScript'); ?>
 
 </body>
 </html>

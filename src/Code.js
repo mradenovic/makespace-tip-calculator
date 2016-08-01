@@ -83,3 +83,8 @@ function getTip(message) {
   .replace('Your share: ', '');
   return tip;
 }
+
+function include(filename) {
+  return HtmlService.createHtmlOutputFromFile(filename)
+      .getContent();
+}

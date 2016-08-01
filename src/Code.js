@@ -10,6 +10,10 @@ function doGet(e) {
   }
 }
 
+/**
+ * Creates Tip Calculator home page.
+ * @return {HtmlOutput} The HTML page to be served.
+ */
 function getHomePageHtml(e) {
   return HtmlService.createTemplateFromFile('Page').evaluate()
       .setTitle('Tip calculator')

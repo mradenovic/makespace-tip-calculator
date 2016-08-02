@@ -53,14 +53,10 @@ function getTip(message) {
   .replace('Tip Received from ', '')
   .replace('. -', '');
 
-  var total = /Total tip: \$\d*\.\d\d/i
-  tip.total = body.match(total)
-  .toString()
-  .replace('Total tip: ', '');
+  var reAmount = /\$\d*\.\d\d/g;
+  var amounts = body.match(reAmount);
 
-  var yourShare = /Your share: \$\d*\.\d\d/i
-  tip.yourShare = body.match(yourShare)
-  .toString()
-  .replace('Your share: ', '');
+  tip.total = amounts[0];
+  tip.yourShare = amounts[1];
   return tip;
 }

@@ -48,15 +48,24 @@ function getTip(message) {
   tip.date = date.toDateString();
 
   var customer = /Tip Received from.*\. -/i;
-  tip.customer = body.match(customer)
-  .toString()
-  .replace('Tip Received from ', '')
-  .replace('. -', '');
+  try {
+    tip.customer = body.match(customer)
+    .toString()
+    .replace('Tip Received from ', '')
+    .replace('. -', '');
+  }
+  catch(err) {
+    tip.customer = 'N/A';
+  }
 
   var reAmount = /\$\d*\.\d\d/g;
   var amounts = body.match(reAmount);
 
   tip.total = amounts[0];
   tip.yourShare = amounts[1];
+  if (!tip.yourShare) {
+    tip.yourShare = null;
+  }
+
   return tip;
 }

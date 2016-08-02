@@ -29,6 +29,7 @@
    */
   function loadTips() {
     timer = setInterval(getProgressData, 1000);
+    $(".form-control").prop("disabled", true);
     $('#tip-table').empty();
     $('#tip-total').empty();
     $('#progress-bar').show();
@@ -90,6 +91,7 @@
     }
     $('#progress-bar').hide();
     $('#progress-info').text('');
+    $(".form-control").prop("disabled", false);
   }
   
   /**

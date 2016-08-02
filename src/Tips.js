@@ -40,12 +40,29 @@ function getTips(after, before) {
  */
 function getTip(message) {
   var body = message.getPlainBody();
-  body = body.replace(/\s+/g," ");
 
-  var tip = {};
+  var tip = getTipFromBody(body);
 
   var date = message.getDate();
   tip.date = date.toDateString();
+
+  return tip;
+}
+
+/**
+ * Returns tip object from message plain body.
+ * @param {String} body Gmail message body.
+ * @return {<Object>} Single tip data.
+ *
+ * Example tip object:
+ * { customer: "Mike",
+ *   total: "$150.00",
+ *   yourShare: "$50.00"
+ * }
+ */
+function getTipFromBody(body) {
+  body = body.replace(/\s+/g," ");
+  var tip = {};
 
   var customer = /Tip Received from.*\. -/i;
   try {
@@ -69,3 +86,4 @@ function getTip(message) {
 
   return tip;
 }
+

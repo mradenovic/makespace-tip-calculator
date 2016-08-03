@@ -54,7 +54,9 @@
   }
   
   function updateProgress(progressData) {
-    $('#progress-info').text(progressData.progress + '% done!');
+    $('#progress-info').text(progressData.progress + '%');
+    $('#progress-info').css('width', progressData.progress + '%');
+    $('#progress-info').prop('aria-valuenow', progressData.progress);
   }
   
   /**

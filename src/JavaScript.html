@@ -59,6 +59,11 @@
     $('#progress-info').prop('aria-valuenow', progressData.progress);
   }
   
+  function resetProgress(progressData) {
+    $('#progress-bar').hide();
+    $('#progress-info').text('');
+  }
+  
   /**
    * Show the returned tip list.
    * @param {Array.<Object>} tips The tip to show.
@@ -96,8 +101,7 @@
       $('#tip-total').text('No tips!');
       list.text('No tips!');
     }
-    $('#progress-bar').hide();
-    $('#progress-info').text('');
+    resetProgress()
     $(".form-control").prop("disabled", false);
   }
   

@@ -1,4 +1,4 @@
-<div class="mdl-grid">
+<div class="row">
   <p>
     This application allows you to view your tips for a selected period of
     time.
@@ -6,25 +6,27 @@
   </p>
 </div>
 
-<div class="mdl-grid">
-  <div class="mdl-cell mdl-cell">
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input form-control" type="date" id="date-start" name="date-start">
-      <label class="mdl-textfield__label" for="date-start">After</label>
+<div class="row">
+  <div class="col-sm-3 col-xs-6">
+    <div class="form-group">
+      <label for="date-start">After</label>
+      <input class="form-control" type="date" id="date-start" name="date-start">
     </div>
   </div>
-  <div class="mdl-cell mdl-cell">
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input form-control" type="date" name="date-end" id="date-end"/>
-      <label class="mdl-textfield__label" for="date-end">Before:</label>
+  <div class="col-sm-3 col-xs-6">
+    <div class="form-group">
+      <label for="date-end">Before:</label>
+      <input class="form-control" type="date" name="date-end" id="date-end"/>
     </div>
   </div>
-  <div class="mdl-cell mdl-cell">
-    <button id="button-go" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored form-control">
-      Go
-    </button>
+  <div class="col-sm-3 col-xs-6">
+    <div class="form-group  bottom-column">
+      <button id="button-go" class="btn btn-block btn-primary form-control">
+        Go
+      </button>
+    </div>
+  </div>
+  <div class="col-sm-3 col-xs-6" name="tip-total" id="tip-total">
   </div>
 </div>
 
-<div class="mdl-grid" name="tip-total" id="tip-total">
-</div>

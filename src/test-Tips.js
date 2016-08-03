@@ -15,7 +15,7 @@ var msg02 = '            Tip Received from Zsuzsanna Wiliford.\n'
 function testingGetTipFromBody(){
   QUnit.test( "getTipFromBody testing", function() {
     expect(2);
-    deepEqual( getTipFromBody(msg01), {customer: 'Christina Lamano', total: '$10.00', yourShare: null}, "Test tip object from msg01" );
+    deepEqual( getTipFromBody(msg01), {customer: 'Christina Lamano', total: '$10.00', yourShare: '$0.00'}, "Test tip object from msg01" );
     deepEqual( getTipFromBody(msg02), {customer: 'Zsuzsanna Wiliford', total: '$10.00', yourShare: '$5.00'}, "Test tip object from msg02" );
   });
 }

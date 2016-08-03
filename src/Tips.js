@@ -81,7 +81,7 @@ function getTipFromBody(body) {
   tip.total = amounts[0];
   tip.yourShare = amounts[1];
   if (!tip.yourShare) {
-    tip.yourShare = null;
+    tip.yourShare = '$0.00';
   }
 
   return tip;

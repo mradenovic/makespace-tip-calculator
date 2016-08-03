@@ -54,7 +54,7 @@
   }
   
   function updateProgress(progressData) {
-    $('#progress-info').text(progressData.progress + '%');
+    $('#progress-info').text(progressData.progress + '% done!');
     $('#progress-info').css('width', progressData.progress + '%');
     $('#progress-info').prop('aria-valuenow', progressData.progress);
   }
@@ -72,19 +72,19 @@
         yourShareTotal += Number(tip.yourShare.replace(/[^0-9\.]+/g,""));
         var item = $('<tr>');
         
-        var total = $('<td>')
+        var total = $('<td class="text-right">')
             .text(tip.date);
         item.append(total);
         
-        var customer = $('<td class="mdl-data-table__cell--non-numeric">')
+        var customer = $('<td>')
             .text(tip.customer);
         item.append(customer);
         
-        var total = $('<td>')
+        var total = $('<td class="text-right">')
             .text(tip.total);
         item.append(total);
         
-        var yourShare = $('<td>')
+        var yourShare = $('<td class="text-right">')
           .text(tip.yourShare);
         item.append(yourShare);
         

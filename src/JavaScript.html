@@ -37,6 +37,7 @@
     $(".form-control").prop("disabled", true);
     $('#tip-table').empty();
     $('#tip-total').empty();
+    $('#alerts').empty();
     $('#tips').hide();
     $('#progress-bar').show();
     var after = $('#date-start').val();
@@ -80,6 +81,11 @@
       tips.forEach(function(tip, index) {
         yourShareTotal += Number(tip.yourShare.replace(/[^0-9\.]+/g,""));
         var item = $('<tr>');
+
+        if (tip.yourShare == '$0.00') {
+          showAlert(tip);
+          $(item).addClass('warning');
+        }
         
         var total = $('<td class="text-right">')
             .text(tip.date);
@@ -106,6 +112,15 @@
     resetProgress()
     $('#tips').show();
     $(".form-control").prop("disabled", false);
+  }
+  
+  function showAlert(tip) {
+    var alerts = $('#alerts');
+    var alert = $('<div class="alert alert-warning alert-dismissible" role="alert">' +
+                  '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+                  'Warning: ' + 'Tip by customer ' + tip.customer + ' shows total ' + tip.total + ' and your share ' + tip.yourShare + '!' +
+                  '</div>');
+    alerts.append(alert);
   }
   
   /**

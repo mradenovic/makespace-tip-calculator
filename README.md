@@ -30,13 +30,13 @@ Since gapps does not haave pull option, use `sh gapps-pull.sh` to pull changes m
 ##Release Notes
 
 ### 0.2.1
--- bug fixes
+-- bug fixes  
 
 ### 0.2.0
--- UI re-designed with [Bootstrap](http://getbootstrap.com/)
--- add alerts
--- bug fixes
+-- UI re-designed with [Bootstrap](http://getbootstrap.com/)  
+-- add alerts  
+-- bug fixes  
 
 ### 0.1.0
--- initial release
--- UI designed with [Material Dasign Lite](https://getmdl.io/)
+-- initial release  
+-- UI designed with [Material Dasign Lite](https://getmdl.io/)  

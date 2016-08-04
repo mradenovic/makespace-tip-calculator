@@ -37,6 +37,7 @@
     $(".form-control").prop("disabled", true);
     $('#tip-table').empty();
     $('#tip-total').empty();
+    $('#tips').hide();
     $('#progress-bar').show();
     var after = $('#date-start').val();
     var before = $('#date-end').val();
@@ -105,6 +106,7 @@
       list.text('No tips!');
     }
     resetProgress()
+    $('#tips').show();
     $(".form-control").prop("disabled", false);
   }
   

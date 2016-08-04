@@ -99,10 +99,9 @@
         
         list.append(item);
       });
-      $('#tip-total').text('Your share of the tip for the period is ' + yourShareTotal.toFixed(2));
+      $('#tip-total').text('$' + yourShareTotal.toFixed(2));
     } else {
-      $('#tip-total').text('No tips!');
-      list.text('No tips!');
+      $('#tip-total').text('$0.00');
     }
     resetProgress()
     $('#tips').show();

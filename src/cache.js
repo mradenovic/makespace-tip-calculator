@@ -11,7 +11,7 @@ function getProgress() {
 
 /**
  * Stores progress to user cache.
- * @param {String} progressPercent Pjercentage of threads processed.
+ * @param {Int} progressPercent Pjercentage of threads processed.
  */
 function setProgress(progressPercent) {
   var cache = CacheService.getUserCache();

@@ -54,7 +54,7 @@
   }
   
   function updateProgress(progressData) {
-    $('#progress-info').text(progressData.progress + '% done!');
+    $('#progress-info').text(progressData.progress + '%');
     $('#progress-info').css('width', progressData.progress + '%');
     $('#progress-info').prop('aria-valuenow', progressData.progress);
   }
@@ -62,7 +62,7 @@
   function resetProgress(progressData) {
     $('#progress-info').text('100%');
     $('#progress-bar').hide();
-    $('#progress-info').text('');
+    $('#progress-info').text('0%');
     $('#progress-info').css('width', '2em');
     $('#progress-info').prop('aria-valuenow', 0);
   }

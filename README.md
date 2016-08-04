@@ -29,6 +29,9 @@ Since gapps does not haave pull option, use `sh gapps-pull.sh` to pull changes m
 
 ##Release Notes
 
+### 0.3.0
+-- add stats functionality  
+
 ### 0.2.1
 -- bug fixes  
 

@@ -22,6 +22,8 @@ function getTips(after, before) {
       tips.push(tip);
     })
   })
+  
+  setProgress(0)
 
   return tips;
 }

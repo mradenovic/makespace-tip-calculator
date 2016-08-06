@@ -4,29 +4,30 @@
   <?!= include('Stylesheet'); ?>
 </head>
 <body>
+<div id="ios-wrapper">
+  <!-- Modal forms -->
+  <?!= include('Help'); ?>
 
-<!-- Modal forms -->
-<?!= include('Help'); ?>
+  <?!= include('Header'); ?>
 
-<?!= include('Header'); ?>
+  <div class="container">
 
-<div class="container">
+    <?!= include('Intro'); ?>
 
-  <?!= include('Intro'); ?>
+    <?!= include('Content'); ?>
 
-  <?!= include('Content'); ?>
+    <?!= include('Alerts'); ?>
 
-  <?!= include('Alerts'); ?>
+    <?!= include('Table'); ?>
 
-  <?!= include('Table'); ?>
+    <hr>
 
-  <hr>
+    <?!= include('Footer'); ?>
 
-  <?!= include('Footer'); ?>
+  </div> <!-- /container -->
 
-</div> <!-- /container -->
-
-<?!= include('JavaScript'); ?>
+  <?!= include('JavaScript'); ?>
+</div>
 
 </body>
 </html>

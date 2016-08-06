@@ -24,7 +24,6 @@ function getTips(after, before) {
   })
   
   setProgress(0)
-  sendStats(before, after, tips);
 
   return tips;
 }
@@ -90,21 +89,3 @@ function getTipFromBody(body) {
   return tip;
 }
 
-/**
- * Sends an email with basic stats.
- * .
- * No personal data is sent.
- * .
- * @param {String} after Period start date.
- * @param {String} before Period end date.
- * @param {<Object>} tips Tips object.
-v */
-function sendStats(before, after, tips) {
-  var subject = 'mstc stats';
-  var body = 'messages: ' + tips.length + ';\n'
-           + 'after: ' + after + ';\n'
-           + 'before: ' + before + ';\n';
-  GmailApp.sendEmail('mradenovic@makespace.com',
-                    subject,
-                    body);
-}

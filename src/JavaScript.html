@@ -132,5 +132,10 @@
     window.alert('An error has occurred, please try again.');
   }
 
-
+  //  Collapse navbar on click
+  $(document).on('click','.navbar-collapse.in',function(e) {
+    if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+      $(this).collapse('hide');
+    }
+  });
 </script>

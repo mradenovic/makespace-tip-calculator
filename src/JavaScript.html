@@ -22,10 +22,12 @@
    */
   function setDefaultPeriod() {
     var start = new Date();
-    start.setDate(0);
     start.setMonth(start.getMonth() - 1);
+    start.setDate(0);
+    start.setHours(12,0,0,0);
     var end = new Date();
     end.setDate(1);
+    end.setHours(12,0,0,0);
     $('#date-start').val(start.toJSON().slice(0,10));
     $('#date-end').val(end.toJSON().slice(0,10));
   }

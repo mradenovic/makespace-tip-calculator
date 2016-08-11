@@ -1,0 +1,22 @@
+<script>
+  QUnit.test( "test date functions", function( assert ) {
+    assert.expect(11);
+  
+    /* Test previous month */
+    assert.deepEqual( getMonthBorders(new Date('2016-01-13T23:52:17'), -1), {after: '2015-11-30', before: '2016-01-01'}, "Test previous of Jan" );
+    assert.deepEqual( getMonthBorders(new Date('2016-02-13T23:52:17'), -1), {after: '2015-12-31', before: '2016-02-01'}, "Test previous of Feb" );
+    assert.deepEqual( getMonthBorders(new Date('2016-04-17T23:52:17'), -1), {after: '2016-02-29', before: '2016-04-01'}, "Test previous of Apr" );
+    assert.deepEqual( getMonthBorders(new Date(2016,7,3), -1), {after: '2016-06-30', before: '2016-08-01'}, "Test previous of Jul" );
+    assert.deepEqual( getMonthBorders(new Date(2016,6,3), -1), {after: '2016-05-31', before: '2016-07-01'}, "Test previous of Jun" );
+    
+    /* Test current month */
+    assert.deepEqual( getMonthBorders(new Date('2016-01-13T23:52:17')), {after: '2015-12-31', before: '2016-02-01'}, "Test current of Jan" );
+    assert.deepEqual( getMonthBorders(new Date('2016-02-13T23:52:17')), {after: '2016-01-31', before: '2016-03-01'}, "Test current of Feb" );
+    assert.deepEqual( getMonthBorders(new Date('2016-04-17T23:52:17')), {after: '2016-03-31', before: '2016-05-01'}, "Test current of Apr" );
+
+    /* Test next month */
+    assert.deepEqual( getMonthBorders(new Date('2016-01-13T23:52:17'), 1), {after: '2016-01-31', before: '2016-03-01'}, "Test next of Jan" );
+    assert.deepEqual( getMonthBorders(new Date('2016-02-13T23:52:17'), 1), {after: '2016-02-29', before: '2016-04-01'}, "Test next of Feb" );
+    assert.deepEqual( getMonthBorders(new Date('2016-04-17T23:52:17'), 1), {after: '2016-04-30', before: '2016-06-01'}, "Test next of Apr" );    
+  });
+</script>

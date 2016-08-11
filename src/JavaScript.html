@@ -76,6 +76,33 @@
   }
 
   /**
+   * Returns week borders for given date.
+   * 
+   * Week borders are dates that can be used as params with Gmail
+   * after: and before: search operators.
+   *
+   * @param {Date} date Date to get Week from.
+   * @param {int} {offset=0} offset of weeks. i.e offset=-1 will
+   *   return previuos week, and ofset=1 will return next week
+   * @return {<Object>} WeekBorders object.
+   *
+   * Example WeekBorders for 06/15/2016:
+   * { after: "2016-06-11",
+   *   before: "2016-06-19"
+   * }
+   */
+  function getWeekBorders(date, offset=0) {
+    date.setHours(12,0,0,0);
+    var day = date.getDay();
+    var after = new Date(date);
+    after.setDate(date.getDate() - (day+1) + offset*7);
+    var before = new Date(date);
+    before.setDate(date.getDate() + (7-day) + offset*7);
+    return {after: after.toJSON().slice(0,10),
+            before: before.toJSON().slice(0,10)};
+  }
+
+  /**
    * Load the tip list.
    */
   function loadTips() {

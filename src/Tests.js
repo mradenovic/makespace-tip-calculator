@@ -13,3 +13,10 @@ function getServerTestsHtml( e ) {
  
      return QUnit.getHtml();
 };
+
+function getClientTestsHtml( e ) {
+  return HtmlService.createTemplateFromFile('ClientTests').evaluate()
+      .setTitle('mstc Client tests')
+      .setSandboxMode(HtmlService.SandboxMode.IFRAME)
+      .addMetaTag('viewport', 'width=device-width, initial-scale=1');
+}

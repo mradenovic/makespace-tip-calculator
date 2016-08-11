@@ -15,7 +15,12 @@
     setPeriod('last-month');
     $('#smart-ass').popover();
     $('#button-go').bind('click', loadTips);
+    $('#select-period').bind('change', selectPeriod);
   });
+  
+  function selectPeriod() {
+    setPeriod($('#select-period').val());
+  }
   
   /**
    * Set period for tips digest.

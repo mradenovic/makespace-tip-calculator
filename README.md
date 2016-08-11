@@ -29,6 +29,11 @@ Since gapps does not haave pull option, use `sh gapps-pull.sh` to pull changes m
 
 ##Release Notes
 
+### 0.5.0
+-- UI update  
+-- add preselected periods  
+-- bug fix  
+
 ### 0.4.2
 -- bug fixes  
 

@@ -12,19 +12,32 @@
 <script>
   // When the page loads.
   $(function() {
-    setDefaultPeriod();
+    setPeriod('last-month');
     $('#smart-ass').popover();
     $('#button-go').bind('click', loadTips);
   });
   
   /**
-   * Set default period for tips view.
+   * Set period for tips digest.
+   *
+   * @param {String} period Period to set. Possible values are:
+   *   'this-month', 'last-month', 'custom';
    */
-  function setDefaultPeriod() {
-    // Get month borders for previous month
-    var monthBorders = getMonthBorders(new Date(), -1);
-    $('#date-start').val(monthBorders.after);
-    $('#date-end').val(monthBorders.before);
+  function setPeriod(period) {
+    var Borders;
+    switch (period) {
+      case 'this-month':
+        Borders = getMonthBorders(new Date());
+        break;
+      case 'last-month':
+      default:
+        Borders = getMonthBorders(new Date(), -1);
+        break;
+      case 'custom':
+        break;
+    }
+    $('#date-start').val(Borders.after);
+    $('#date-end').val(Borders.before);
   }
   
   /**

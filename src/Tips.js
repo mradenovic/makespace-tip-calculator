@@ -18,6 +18,7 @@ function getTips(after, before) {
     setProgress(progress);
     var messages = thread.getMessages();
     messages.forEach(function(message) {
+      if (message.getFrom() != 'app@makespace.com') {return};
       var tip = getTip(message);
       tips.push(tip);
     })

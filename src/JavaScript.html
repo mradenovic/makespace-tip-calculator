@@ -21,17 +21,40 @@
    * Set default period for tips view.
    */
   function setDefaultPeriod() {
-    var start = new Date();
-    start.setMonth(start.getMonth() - 1);
-    start.setDate(0);
-    start.setHours(12,0,0,0);
-    var end = new Date();
-    end.setDate(1);
-    end.setHours(12,0,0,0);
-    $('#date-start').val(start.toJSON().slice(0,10));
-    $('#date-end').val(end.toJSON().slice(0,10));
+    // Get month borders for previous month
+    var monthBorders = getMonthBorders(new Date(), -1);
+    $('#date-start').val(monthBorders.after);
+    $('#date-end').val(monthBorders.before);
   }
   
+  /**
+   * Returns month borders for given date.
+   * 
+   * Month borders are dates that can be used as params with Gmail
+   * after: and before: search operators.
+   *
+   * @param {Date} date Date to get month from.
+   * @param {int} {offset=0} offset of months. i.e offset=-1 will
+   *   return previuos month, and ofset=1 will return next month
+   * @return {<Object>} MonthBorders object.
+   *
+   * Example MonthBorders for  June:
+   * { after: "2016-05-31",
+   *   before: "2016-07-01"
+   * }
+   */
+  function getMonthBorders(date, offset=0) {
+    date.setHours(12,0,0,0);
+    var after = new Date(date);
+    after.setMonth(after.getMonth() + offset);
+    after.setDate(0);
+    var before = new Date(date);
+    before.setMonth(before.getMonth() + 1 +offset);
+    before.setDate(1);
+    return {after: after.toJSON().slice(0,10),
+            before: before.toJSON().slice(0,10)};
+  }
+
   /**
    * Load the tip list.
    */

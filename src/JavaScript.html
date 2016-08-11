@@ -30,6 +30,7 @@
    */
   function setPeriod(period) {
     var Borders;
+    $('#period-controls').hide();
     switch (period) {
       case 'this-month':
         Borders = getMonthBorders(new Date());
@@ -39,6 +40,7 @@
         Borders = getMonthBorders(new Date(), -1);
         break;
       case 'custom':
+        $('#period-controls').show();
         break;
     }
     $('#date-start').val(Borders.after);

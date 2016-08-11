@@ -5,6 +5,8 @@
 function doGet(e) {
   if (e.parameter.test == 'server-tests') {
     return getServerTestsHtml(e);
+  } else if (e.parameter.test == 'client-tests') {
+    return getClientTestsHtml(e);
   } else {
     return getHomePageHtml(e);
   }

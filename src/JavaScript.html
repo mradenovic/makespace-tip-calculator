@@ -112,6 +112,20 @@
    * Load the tip list.
    */
   function loadTips() {
+    showProgressUI();
+    var after = $('#date-start').val();
+    var before = $('#date-end').val();
+    google.script.run
+        .withSuccessHandler(showTips)
+        .withFailureHandler(showError)
+        .getTips(after, before);
+  }
+
+  
+  /**
+   * Shows progress UI.
+   */
+  function showProgressUI() {
     timer = setInterval(getProgressData, 1000);
     $(".form-control").prop("disabled", true);
     $('#tip-table').empty();
@@ -119,12 +133,6 @@
     $('#alerts').empty();
     $('#tips').hide();
     $('#progress-bar').show();
-    var after = $('#date-start').val();
-    var before = $('#date-end').val();
-    google.script.run
-        .withSuccessHandler(showTips)
-        .withFailureHandler(showError)
-        .getTips(after, before);
   }
   
   function getProgressData() {

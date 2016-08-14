@@ -228,8 +228,7 @@
    */
   function showError(error) {
     showResultUI();
-    console.log(error);
-    window.alert('An error has occurred, please try again.');
+    showAlert(error.message);
   }
 
   //  Collapse navbar on click

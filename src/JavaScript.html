@@ -165,6 +165,15 @@
    */
   function showTips(tips) {
     clearInterval(timer);
+    try {
+      digestTips(tips);
+    }
+    finally {
+      showResultUI();      
+    }
+  }
+
+  function digestTips(tips) {
     var list = $('#tip-table').empty();
     var yourShareTotal = 0;
     if (tips.length > 0) {
@@ -200,7 +209,6 @@
     } else {
       $('#tip-total').text('$0.00');
     }
-    showResultUI();
   }
   
   function showAlert(tip) {

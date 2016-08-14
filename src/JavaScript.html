@@ -139,7 +139,7 @@
    * Shows result UI.
    */
   function showResultUI() {
-    resetProgress();
+    updateProgress(0, true);
     $(".form-control").prop("disabled", false);
   }
   
@@ -150,20 +150,15 @@
         .getProgressData();
   }
   
-  function updateProgress(progressData) {
+  function updateProgress(progressData, hide=false) {
+    if (hide) {
+      $('#progress-bar').hide();
+    };
     $('#progress-info').text(progressData.progress + '%');
     $('#progress-info').css('width', progressData.progress + '%');
     $('#progress-info').prop('aria-valuenow', progressData.progress);
   }
-  
-  function resetProgress(progressData) {
-    $('#progress-info').text('100%');
-    $('#progress-bar').hide();
-    $('#progress-info').text('0%');
-    $('#progress-info').css('width', '2em');
-    $('#progress-info').prop('aria-valuenow', 0);
-  }
-  
+    
   /**
    * Show the returned tip list.
    * @param {Array.<Object>} tips The tip to show.

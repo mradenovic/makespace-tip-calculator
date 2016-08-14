@@ -185,11 +185,11 @@
         list.append(item);
       });
       $('#tip-total').text('$' + yourShareTotal.toFixed(2));
+      $('#tips').show();
     } else {
       $('#tip-total').text('$0.00');
     }
     resetProgress()
-    $('#tips').show();
     $(".form-control").prop("disabled", false);
   }
   

@@ -5,6 +5,7 @@
  * @return {Array.<Object>} The array of tip object.
  */
 function getTips(after, before) {
+  if (getProgress() > 0) throw('Another transaction in progress, plase try again later.');
   var searchStr = 'from:app@makespace.com after: ' + after + ' before: ' + before + ' tip received';
   var threads = GmailApp.search(searchStr);
   Logger.log('Number of threads: ' + threads.length)

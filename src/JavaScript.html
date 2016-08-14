@@ -182,7 +182,10 @@
         var item = $('<tr>');
 
         if (tip.yourShare == '$0.00') {
-          showAlert(tip);
+          var msg = 'Warning: ' + 'Tip by customer ' 
+                  + tip.customer + ' total: ' + tip.total 
+                  + '  your share: ' + tip.yourShare + '!';
+          showAlert(msg);
           $(item).addClass('warning');
         }
         
@@ -211,11 +214,11 @@
     }
   }
   
-  function showAlert(tip) {
+  function showAlert(msg) {
     var alerts = $('#alerts');
     var alert = $('<div class="alert alert-warning alert-dismissible" role="alert">' +
                   '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
-                  'Warning: ' + 'Tip by customer ' + tip.customer + ' shows total ' + tip.total + ' and your share ' + tip.yourShare + '!' +
+                  msg +
                   '</div>');
     alerts.append(alert);
   }

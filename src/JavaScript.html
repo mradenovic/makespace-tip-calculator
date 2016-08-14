@@ -147,16 +147,16 @@
     google.script.run
         .withSuccessHandler(updateProgress)
         .withFailureHandler(showError)
-        .getProgressData();
+        .getProgress();
   }
   
-  function updateProgress(progressData, hide=false) {
+  function updateProgress(progress=0, hide=false) {
     if (hide) {
       $('#progress-bar').hide();
     };
-    $('#progress-info').text(progressData.progress + '%');
-    $('#progress-info').css('width', progressData.progress + '%');
-    $('#progress-info').prop('aria-valuenow', progressData.progress);
+    $('#progress-info').text(progress + '%');
+    $('#progress-info').css('width', progress + '%');
+    $('#progress-info').prop('aria-valuenow', progress);
   }
     
   /**

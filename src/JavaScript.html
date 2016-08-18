@@ -152,7 +152,9 @@
         .getProgress();
   }
   
-  function updateProgress(progress=0, hide=false) {
+  function updateProgress(progress, hide) {
+    var progress = typeof progress !== 'undefined' ?  progress : 0;
+    var hide = typeof hide !== 'undefined' ?  hide : false;
     if (hide) {
       $('#progress-bar').hide();
     };

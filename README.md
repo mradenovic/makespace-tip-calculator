@@ -25,7 +25,7 @@ Since gapps does not haave pull option, use `sh gapps-pull.sh` to pull changes m
 
 ## Test
 
-[QUnit for Google Apps Script](https://github.com/simula-innovation/qunit/tree/gas/gas) is used for testing. To run tests add `?test=server-tests` to the app link, or click [here](https://script.google.com/a/macros/makespace.com/s/AKfycbylV6dK4FQck5d-DP6OblvSIvQkLYajRZO04njWT_4yRE378GU/exec?test=server-tests).
+[QUnit for Google Apps Script](https://github.com/simula-innovation/qunit/tree/gas/gas) is used for testing. To run tests add `?test=server-tests` to the app link, or click [here](https://script.google.com/macros/s/AKfycbyPxNOVdbnIp2dvtic2SubToACs_dYhdL9p5zqJchW__cvb5g4/exec?test=server-tests).
 
 ## Release Notes
 
